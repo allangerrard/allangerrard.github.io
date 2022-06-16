@@ -1,0 +1,129 @@
+:root {
+    --bg: #1C3738;
+    --text: #ecf0df;
+    --secondary: #1b4741;
+    --accent: #09BC8A;
+    --main-font: Cambria, Helvetica, Arial, sans-serif;
+
+    box-sizing: border-box;
+}
+
+*,::before,::after {box-sizing: inherit;} /*this is a fix you should use in every stylesheet */
+
+body {
+    background-color: var(--bg);
+    color:var(--text);
+    font-family: var(--main-font);
+    letter-spacing: 1px;
+    line-height: 1.5em;
+}
+
+a {
+    color: var(--accent);
+    text-decoration-color: transparent;
+    transition: text-decoration-color 500ms;
+}
+
+a:hover {
+    text-decoration-color: var(--accent);
+}
+
+/*body * + * {
+    margin-top: 1.5em;
+}*/
+
+.container {
+    margin: auto;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "image"
+        "image"
+        "about"
+        "research";
+    justify-items: stretch;
+    text-align: center;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    padding: 1.5em;
+    letter-spacing: 3px;
+}
+
+.profile-image {
+    grid-area: image;
+}
+
+.about {
+    grid-area: about;
+    background-color: var(--secondary);
+    border-bottom: 2px solid var(--accent);
+    padding: 1em;
+}
+
+.research {
+    grid-area: research;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.profile-image {
+    min-width: 300px; 
+    height: 200px;
+    background: url("doodad.jpg") no-repeat center transparent;
+    background-size: cover;
+}
+
+.accent {
+    color: var(--accent)
+}
+
+.card {
+    background-color: var(--secondary);
+    padding: 0.5em 1em;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.card p {
+    margin: 0.5em 0;
+}
+
+
+
+@media only screen and (min-width: 500px) {
+    .container {
+        max-width: 70%;
+        margin: 2em auto;
+        padding: 1.5em;
+        border-radius: 5px;
+        display: grid;
+        grid-template-areas:
+            "header header header"
+            "about about image"
+            "research research research";
+        gap: 20px 0;
+        justify-content: stretch;
+    }
+
+    .profile-image {
+        min-width: 200px; 
+        height: auto;
+        background: url("doodad.jpg") no-repeat center transparent;
+        background-size: cover;
+    }
+    
+    .flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+}
+}
